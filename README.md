@@ -1,6 +1,6 @@
 # Intro
 
-Collection of docker compose and its configuration
+Collection of docker compose configuration and it's examples
 
 # Usage
 
