@@ -7,7 +7,7 @@ Collection of docker compose configuration and it's examples
 ## 1. Clone
 
 ```sh
-git clone https://github.com/aysf/docker-compose.git $HOME/docker/
+git clone https://github.com/aysf/example.git $HOME/docker/
 ```
 
 ## 2. Create Container
