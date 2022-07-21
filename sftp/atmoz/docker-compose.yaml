@@ -1,0 +1,10 @@
+version: "3.5"
+services:
+  sftp:
+    container_name: sftp-container
+    image: atmoz/sftp
+    volumes:
+      - ./volume:/home/foo/upload
+    ports:
+      - "9922:22"
+    command: foo:pass:1001:12345:/foo-home

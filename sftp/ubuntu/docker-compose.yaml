@@ -1,0 +1,10 @@
+version: '3.5'
+services:
+  sftp:
+    container_name: sftp-container-v
+    build: .
+    image: test_server
+    ports:
+      - "3022:22"
+    volumes:
+      - ./volume:/home/root/sftp
