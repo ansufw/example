@@ -1,2 +1,2 @@
 volume/*
-datadb/*
+mysql/mysql-with-volume/datadb/*
