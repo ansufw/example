@@ -1,2 +1,2 @@
-volume/*
+sftp/ubuntu/volume/*
 mysql/mysql-with-volume/datadb/*
