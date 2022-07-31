@@ -4,6 +4,10 @@ This container I use for sftp server
 
 # How To Use
 
+## Create folder volume
+
+go to this ubuntu folder and make a dir called volume `mkdir volume` if there is no directory available yet.
+
 ## Initialize Container
 
 ```sh
