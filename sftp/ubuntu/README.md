@@ -11,8 +11,14 @@ go to this ubuntu folder and make a dir called volume `mkdir volume` if there is
 ## Initialize Container
 
 ```sh
-docker-compose -p sftp -f ./docker-compose.yaml up -d
+docker-compose -p smartfren -f ./docker-compose.yaml up -d
 ```
+
+The command will do the following:
+1. flag `-p` give the name of project by `smartfren`
+2. flag `-f`, following with the location of docker-compose file, locate the file of docker-compose
+3. command `docker-compose up -d`, with detach flag, means starting the containers in the background and leaves them running.
+
 
 
 ## Connect to SSH
