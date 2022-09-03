@@ -16,7 +16,7 @@ docker-compose -p smartfren -f ./docker-compose.yaml up -d
 
 The command will do the following:
 1. flag `-p` give the name of project by `smartfren`
-2. flag `-f`, following with the location of docker-compose file, locate the file of docker-compose
+2. flag `-f` locate the file of docker-compose `./docker-compose.yaml`
 3. command `docker-compose up -d`, with detach flag, means starting the containers in the background and leaves them running ([source](https://docs.docker.com/engine/reference/commandline/compose_up/)).
 
 
