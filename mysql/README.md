@@ -16,7 +16,10 @@ This command above will create an image called `mysql` and run up the container 
 # Syntax
 
 references:
-- https://www.hostinger.com/tutorials/mysql/how-create-mysql-user-and-grant-permissions-command-line
+- [create user](https://dev.mysql.com/doc/refman/5.6/en/create-user.html)
+- [drop user](https://dev.mysql.com/doc/refman/5.6/en/drop-user.html)
+- [grant](https://dev.mysql.com/doc/refman/8.0/en/grant.html)
+- [show grant](https://dev.mysql.com/doc/refman/8.0/en/show-grants.html)
 
 ## Mysql CLI
 
@@ -38,14 +41,13 @@ SELECT user FROM mysql.userl
 DESC mysql.user
 ```
 
-### Create new user
+### Grant User
 
 ```
-CREATE USER 'new_user'@'localhost' IDENTIFIED BY 'password'
+grant all on widget.* to 'ansuf'@'%' identified by 'secret';
 ```
-
-### Grant user
-
-```
-GRANT ALL PRIVILEGES ON * . * TO 'new_user'@'localhost';
-```
+notes:
+- widget is the name of database
+- ansuf is the user name
+- '%' is all host
+- 'secret' is the user password
