@@ -51,3 +51,21 @@ notes:
 - ansuf is the user name
 - '%' is all host
 - 'secret' is the user password
+
+### Create User 
+
+```
+CREATE USER 'nilu'@'172.17.0.1' IDENTIFIED BY 'password';
+```
+
+### Grant Privileges
+
+```
+GRANT ALL PRIVILEGES ON *.* TO 'nilu'@'172.17.0.1' WITH GRANT OPTION;
+```
+
+### Flush Previlege
+
+```
+flush privileges;
+```
