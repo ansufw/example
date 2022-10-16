@@ -15,6 +15,9 @@ This command above will create an image called `mysql` and run up the container 
 
 # Syntax
 
+references:
+- https://www.hostinger.com/tutorials/mysql/how-create-mysql-user-and-grant-permissions-command-line
+
 ## Mysql CLI
 
 ```
