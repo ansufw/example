@@ -1,5 +1,7 @@
 # Example of MySQL instance
 
+version 5.7
+
 ## Quick Start
 
 clone this folder and run this command

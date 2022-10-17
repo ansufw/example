@@ -1,2 +1,3 @@
 sftp/ubuntu/volume/*
 mysql/mysql-with-volume/datadb/*
+mariadb/mariadb-with-volume/datadb/*
