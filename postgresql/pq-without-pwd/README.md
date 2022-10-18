@@ -1,4 +1,25 @@
-# Note
+```yaml
+version: '3.8'
+
+services:  
+
+  db:
+    container_name: pg_container_no_pass
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: dbname
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5400:5432"
+    volumes:
+      - ./datadb:/var/lib/postgresql/data/pgdata
+```
+
+
+# Features
 
 - without password
 - with volume

@@ -1,4 +1,23 @@
-# Example of MySQL instance
+```yaml
+version: '3.8'
+ 
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysqldb
+    environment:
+      MYSQL_ROOT_PASSWORD: custompwd
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: customuserpwd
+    ports:
+      - "6033:3306"
+    volumes:
+      - ./datadb:/var/lib/mysql
+
+```
+
+# MySQL instance
 
 [docker hub](https://hub.docker.com/_/mysql)
 

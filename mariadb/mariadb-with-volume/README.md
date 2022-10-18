@@ -1,3 +1,21 @@
+```yaml
+version: '3.8'
+ 
+services:
+  db:
+    image: mariadb:10
+    container_name: mariadb
+    environment:
+      - MARIADB_MYSQL_LOCALHOST_USER=1
+      - MARIADB_MYSQL_LOCALHOST_GRANTS="RELOAD, PROCESS, LOCK TABLES, BINLOG MONITOR"
+      - MARIADB_ROOT_PASSWORD=my-secret-pw
+    ports:
+      - "3808:3306"
+    volumes:
+      - ./mariadb:/var/run/mysqld
+      - ./datadb:/var/lib/mysql
+```
+
 # Environment Var
 
 ## Mandatory
