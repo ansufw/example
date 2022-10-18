@@ -2,3 +2,7 @@ sftp/ubuntu/volume/*
 mysql/mysql-with-volume/datadb/*
 mariadb/mariadb-with-volume/datadb/*
 postgresql/pq-without-pwd/datadb/*
+
+sftp-ubuntu/id_rsa.pub
+sftp-ubuntu/id_rsa
+sftp-ubuntu/vol/*

@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  sftp:
+    container_name: sftp-ubuntu
+    build: .
+    image: ubuntu_sftp_server
+    ports:
+      - "3011:22"
+    volumes:
+      - ./vol:/home/remote_user
