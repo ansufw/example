@@ -62,7 +62,9 @@ command above is alias for
 ```
 CREATE ROLE username WITH LOGIN
 ```
-
+source:
+- https://www.postgresql.org/docs/current/sql-createrole.html
+- https://phoenixnap.com/kb/postgres-create-user
 
 ### Backup db
 
