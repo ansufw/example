@@ -81,8 +81,12 @@ docker exec -t your-db-container pg_dumpall -c -U postgres > dump_`date +%d-%m-%
 - Via Docker
 
 ```
-cat dump_file.sql | docker exec -i container_name psql -U username
+cat dump_file.sql | docker exec -i container_name psql -U username -d dbname
 
+```
+OR
+```
+docker exec -i container_name psql -U postgres -d db_name < backup.sql
 ```
 
 - Non Docker
