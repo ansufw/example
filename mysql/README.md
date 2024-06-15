@@ -3,7 +3,7 @@ version: '3.8'
  
 services:
   db:
-    image: mysql:5.7
+    image: mysql:latest
     container_name: mysqldb
     environment:
       MYSQL_ROOT_PASSWORD: custompwd
