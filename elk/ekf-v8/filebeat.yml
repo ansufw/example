@@ -1,0 +1,44 @@
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat
+  keepfiles: 7
+  permissions: 0644
+
+filebeat.inputs:
+- type: udp
+  max_message_size: 10KiB
+  host: "localhost:8765"
+- type: tcp
+  max_message_size: 10KiB
+  host: "localhost:8765"
+- type: log
+  enabled: false
+  paths:
+    - /var/log/*.log
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+setup.template.settings:
+  index.number_of_shards: 1
+setup.kibana:
+output.elasticsearch:
+  hosts: ["localhost:9200"]
+  indices:
+    - index: "%{[message.app]}-%{+yyyy.MM.dd}"
+      when:
+        has_fields: ['message.app']
+
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+  - add_kubernetes_metadata: ~
+  - decode_json_fields:
+      when.not.equals:
+        input.type: "log"
+          #when.equals:
+          #  input.type: "udp"
+      fields: "message"
+      max_depth: 3

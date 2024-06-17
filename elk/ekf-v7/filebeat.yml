@@ -1,0 +1,46 @@
+logging.level: info
+logging.to_files: true
+logging.files:
+  path: /usr/share/filebeat/mylog/filebeat
+  name: filebeat
+  keepfiles: 7
+  permissions: 0644
+
+filebeat.inputs:
+  - type: udp
+    max_message_size: 10KiB
+    host: "localhost:8765"
+  - type: tcp
+    max_message_size: 10KiB
+    host: "localhost:8765"
+  - type: log
+    enabled: true
+    paths:
+      - /usr/share/filebeat/mylog/*.log
+
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+setup.template.settings:
+  index.number_of_shards: 1
+
+output.elasticsearch:
+  hosts: ["localhost:9200"]
+  indices:
+    - index: "%{[message.app]}-%{+yyyy.MM.dd}"
+      when:
+        has_fields: ['message.app']
+
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+  - add_docker_metadata:
+      host: "unix:///host_docker/docker.sock"
+  - add_kubernetes_metadata: ~
+  - decode_json_fields:
+      when.not.equals:
+        input.type: "log"
+          #when.equals:
+          #  input.type: "udp"
+      fields: "message"
+      max_depth: 3
