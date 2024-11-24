@@ -1,0 +1,28 @@
+name: exercise-mariadb
+
+services:
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+    ports:
+      - "6044:3306"
+
+  whodb:
+    image: clidey/whodb
+    # volumes: # (optional for sqlite) 
+    #   - ./sample.db:/db/sample.db
+    environment:
+      WHODB_MARIADB: '[{"host":"mariadb","user":"root","password":"secret", "config":{"Port":"3066"}}]'
+    ports:
+      - "9020:8080"
+
+  adminer:
+    image: dockette/adminer:full
+    environment:
+      - MEMORY=512M
+      - UPLOAD=4096M
+    ports:
+      - "9010:80"
+
