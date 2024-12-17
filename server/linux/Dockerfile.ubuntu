@@ -1,0 +1,24 @@
+FROM ubuntu:latest
+
+# install and setup ssh
+RUN apt update && \
+    DEBIAN_FRONTEND=noninteractive apt install -y openssh-server
+RUN mkdir -p /var/run/sshd
+
+# create user access (TODO, yet cannot provide sudo command)
+RUN useradd -rm -d /home/remote_user -s /bin/bash remote_user && \
+    echo remote_user:password1234 | chpasswd 
+RUN usermod -aG sudo remote_user
+
+# allow root login
+RUN echo "root:pass123" | chpasswd
+RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+
+# make folder for local volume (optional)
+RUN mkdir -p /data
+
+# generate keygen
+RUN ssh-keygen -A
+
+# run ssh in daemon mode
+CMD ["/usr/sbin/sshd", "-D"]
